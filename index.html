@@ -4,7 +4,6 @@
     <meta charset="uft-8">
     <title> Testing stuff </title>
     <link rel="stylesheet" href="styles.css" type="text/css">
-    <script src="scripts.js"></script>
 </head>
 <body>
     <!-- Flexbox tests -->
@@ -28,6 +27,7 @@
                 </div>
             </div>
             <div class="container-horizontal blue"></div>
+        </div>
     </section>
     <section id="rock-paper-scissors">
         <h1>Rock paper scissors!</h1>
@@ -38,11 +38,12 @@
                 <option value="Paper">Paper</option>
                 <option value="Scissors">Scissors</option>
             </select>
-            <button onclick="rpsFight()">Fight!</button>
+            <button id="rps-fight-button">Fight!</button>
             <p id="rps_winner">Click button to play</p>
             <p id="rps_score">Score: 0 to 0</p>
-
+            
         </div>
     </section>
+    <script src="section-scripts/rockpaperscissors.js"></script>
 </body>
 </html>

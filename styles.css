@@ -105,3 +105,50 @@ div.eas-row {
 div.eas-pixel {
     flex: 1;
 }
+
+section#calculator {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+.calc-frame {
+    border: 2px gray solid;
+    border-radius: 8px;
+    background: linear-gradient(-32deg, rgba(161,179,194,1) 0%, rgba(197,214,228,1) 30%, rgba(240,248,255,1) 75%, rgba(255,255,255,1) 100%);
+}
+
+.calc-display {
+    border: 2px yellowgreen solid;
+    background-color: yellow;
+    text-align: end;
+    font-size: 32px;
+    margin: 20px 16px;
+    padding: 10px 20px;
+}
+.calc-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 16px;
+}
+.calc-row {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+.calc-button {
+    display: flex;
+    width: 80px;
+    height: 60px;
+    background-color:darkseagreen;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+.calc-button:active {
+    background-color: darkslategrey;
+}
+
+#zero {
+    flex: 2;
+}

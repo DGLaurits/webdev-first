@@ -80,3 +80,28 @@ section#rock-paper-scissors {
 
     background: linear-gradient(-73deg, rgba(77,112,142,1) 0%, rgba(210,227,242,1) 30%, rgba(240,248,255,1) 75%, rgba(255,255,255,1) 100%);
 }
+
+section#EdgeASketch {
+    gap: 20px;
+}
+
+section#EdgeASketch * {
+    margin: 0px;
+    padding: 0px;
+}
+
+div#EASBoard {
+    display: flex;
+    flex-direction: column;
+    max-width: 900px;
+    width: 80%;
+    aspect-ratio: 1 / 1;
+    border: 2px black solid;
+}
+div.eas-row {
+    display: flex;
+    flex: 1;
+}
+div.eas-pixel {
+    flex: 1;
+}

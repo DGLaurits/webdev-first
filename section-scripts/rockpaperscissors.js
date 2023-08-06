@@ -45,5 +45,3 @@ function rpsFight() {
     }
     
 }
-
-// For the Etsch A Sketch

@@ -7,7 +7,13 @@ operations = {
     "+": (a, b) => a+b
 };
 
-const updateDisplay = (text) => String(text.length) > 15 ? calcDisplay.innerHTML = "Limit reached" : calcDisplay.innerHTML = text
+const roundNumber = (num) => Math.round((num + Number.EPSILON) * 100000000000000) / 100000000000000
+
+function updateDisplay(text) {
+    typeof text === 'number' ?
+        calcDisplay.innerHTML = String(text).slice(0,15):
+        calcDisplay.innerHTML = text.slice(0, 15)
+}
 
 buttons = document.getElementsByClassName("calc-button");
 
@@ -23,14 +29,15 @@ function calculate(value) {
     currentValue = calcDisplay.innerHTML
     // Checks if the value is numeric
     if ( !isNaN(value) ){
-        console.log(value)
         currentValue == 0 || isNaN(currentValue) || calcToReset ? updateDisplay(value) : updateDisplay(currentValue+value);
+        calcToReset = false;
         return;
     }
     switch (value) {
         case ".":
-            console.log(value);
-            isNaN(currentValue) ? updateDisplay('0.') : updateDisplay(currentValue + ".");
+            if (!currentValue.includes('.')){
+                isNaN(currentValue) ? updateDisplay('0.') : updateDisplay(currentValue + ".");
+            }
             break;
         case "AC":
             calcDisplay.innerHTML = 0;
@@ -42,7 +49,7 @@ function calculate(value) {
         case "+/-":
             currentValue = calcDisplay.innerHTML
             if (currentValue != 0) 
-                calcDisplay.innerHTML = currentValue.charAt(0) == "-" ? currentValue.slice(1) : "-" + currentValue;
+                updateDisplay(currentValue.charAt(0) == "-" ? currentValue.slice(1) : "-" + currentValue)
             break;
         case "=":
             if (isNaN(currentValue)){
@@ -51,12 +58,11 @@ function calculate(value) {
             }
             result = calcFunc(Number(calcFirstValue), Number(currentValue));
             calcFirstValue = currentValue
-            updateDisplay(result);
+            updateDisplay(String(result));
             calcToReset = true;
             break;
         default:
             calcFunc = operations[value];
-            console.log(calcFunc)
             calcFirstValue = currentValue
             updateDisplay(0)
             break;

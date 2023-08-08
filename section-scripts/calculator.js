@@ -21,8 +21,8 @@ for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', () => calculate(buttons[i].value))
 }
 
-let calcFunc = operations[3];
-let calcFirstValue = 0;
+let calcFunc = operations['+'];
+let calcLastValue = 0;
 let calcToReset = false;
 
 function calculate(value) {
@@ -37,11 +37,12 @@ function calculate(value) {
         case ".":
             if (!currentValue.includes('.')){
                 isNaN(currentValue) ? updateDisplay('0.') : updateDisplay(currentValue + ".");
+                calcToReset = false;
             }
             break;
         case "AC":
             calcDisplay.innerHTML = 0;
-            firstValue = 0;
+            calcLastValue = 0;
             break;
         case "C":
             calcDisplay.innerHTML = 0;
@@ -51,20 +52,24 @@ function calculate(value) {
             if (currentValue != 0) 
                 updateDisplay(currentValue.charAt(0) == "-" ? currentValue.slice(1) : "-" + currentValue)
             break;
-        case "=":
+        default:
             if (isNaN(currentValue)){
                 updateDisplay(0);
                 break;
             }
-            result = calcFunc(Number(calcFirstValue), Number(currentValue));
-            calcFirstValue = currentValue
+            result = calcFunc(Number(calcLastValue), Number(currentValue));
+            console.log(calcLastValue);
+            console.log(calcFunc);
+            console.log(currentValue);
+            if (value !== '='){
+                calcFunc = operations[value];
+                calcLastValue = currentValue
+             } else {
+                calcLastValue = 0
+            }
+            console.log(`Updated calcLastValue: ${calcLastValue}`);
             updateDisplay(String(result));
             calcToReset = true;
-            break;
-        default:
-            calcFunc = operations[value];
-            calcFirstValue = currentValue
-            updateDisplay(0)
             break;
     }
 }

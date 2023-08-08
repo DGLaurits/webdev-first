@@ -152,6 +152,19 @@ section#calculator h3 {
     background-color: darkslategrey;
 }
 
+.calc-button.calc-misc {
+    background-color: lightblue;
+}
+.calc-button.calc-misc:active {
+    background-color: darkcyan;
+}
+.calc-button.calc-operation {
+    background-color: burlywood;
+}
+.calc-button.calc-operation:active {
+    background-color: orange;
+}
+
 #zero {
     flex: 2;
 }

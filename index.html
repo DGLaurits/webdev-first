@@ -3,7 +3,8 @@
 <head>
     <meta charset="uft-8">
     <title> Testing stuff </title>
-    <link rel="stylesheet" href="styles.css" type="text/css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/tablestyles.css">
 </head>
 <body>
     <!-- Flexbox tests -->
@@ -95,6 +96,137 @@
                 </div>
             </div>
         </div>
+    </section>
+    <section id="tables">
+        <h1>Table examples</h1>
+        <h3>Table headers</h3>
+        <table>
+            <tr>
+                <th>&nbsp;</th>
+                <th>Knocky</th>
+                <th>Flor</th>
+                <th>Ella</th>
+                <th>Juan</th>
+            </tr>
+            <tr>
+                <th>Breed</th>
+                <td>Jack Russell</td>
+                <td>Poodle</td>
+                <td>Streetdog</td>
+                <td>Cocker Spaniel</td>
+            </tr>
+            <tr>
+                <th>Age</th>
+                <td>16</td>
+                <td>9</td>
+                <td>10</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <th>Owner</th>
+                <td>Mother-in-law</td>
+                <td>Me</td>
+                <td>Me</td>
+                <td>Sister-in-law</td>
+            </tr>
+            <tr>
+                <th>Eating Habits</th>
+                <td>Eats everyone's leftovers</td>
+                <td>Nibbles at food</td>
+                <td>Hearty eater</td>
+                <td>Will eat till he explodes</td>
+            </tr>
+        </table>
+        <h3>Data that span multiple rows or columns</h3>
+        <table>
+            <tr>
+                <th colspan="2">Animals</th>
+            </tr>
+            <tr>
+                <th colspan="2">Hippopotamus</th>
+            </tr>
+            <tr>
+                <th rowspan="2">Horse</th>
+                <td>Mare</td>
+            </tr>
+            <tr>
+                <td>Stallion</td>
+            </tr>
+            <tr>
+                <th colspan="2">Crocodile</th>
+            </tr>
+            <tr>
+                <th rowspan="2">Chicken</th>
+                <td>Hen</td>
+            </tr>
+            <tr>
+                <td>Rooster</td>
+            </tr>
+        </table>
+        <h3>Styling with colgroup</h3>
+        <table>
+            <caption>Some random dude's university schedule</caption>
+            <colgroup>
+                <col>
+                <col>
+                <col style="background-color:aquamarine;">
+                <col style="width: 42px;">
+                <col style="background-color:aquamarine;">
+                <col style="background-color:bisque; border: 4px crimson solid;">
+                <col>
+                <col>
+            </colgroup>
+            <tr>
+                <td>&nbsp;</td>
+                <th>Mon</th>
+                <th>Tues</th>
+                <th>Wed</th>
+                <th>Thurs</th>
+                <th>Fri</th>
+                <th>Sat</th>
+                <th>Sun</th>
+            </tr>
+            <tr>
+                <th>1st period</th>
+                <td>English</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>German</td>
+                <td>Dutch</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <th>2nd period</th>
+                <td>English</td>
+                <td>English</td>
+                <td>&nbsp;</td>
+                <td>German</td>
+                <td>Dutch</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <th>3rd period</th>
+                <td>&nbsp;</td>
+                <td>German</td>
+                <td>&nbsp;</td>
+                <td>German</td>
+                <td>Dutch</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <th>4th period</th>
+                <td>&nbsp;</td>
+                <td>English</td>
+                <td>&nbsp;</td>
+                <td>English</td>
+                <td>Dutch</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
     </section>
     <script src="section-scripts/rockpaperscissors.js"></script>
     <script src="section-scripts/edgeasketch.js"></script>

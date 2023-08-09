@@ -1,4 +1,17 @@
+buttons = document.getElementsByClassName("calc-button");
+
+for (let i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', () => calculate(buttons[i].value))
+}
+
 const calcDisplay = document.querySelector(".calc-display");
+function updateDisplay(text) {
+    typeof text === 'number' ?
+        calcDisplay.innerHTML = String(text).slice(0,15):
+        calcDisplay.innerHTML = text.slice(0, 15)
+}
+
+const roundNumber = (num) => Math.round((num + Number.EPSILON) * 100000000000000) / 100000000000000
 
 operations = {
     "÷": (a, b) => b === 0 ? "nice try" : a/b,
@@ -6,20 +19,6 @@ operations = {
     "-": (a, b) => a-b,
     "+": (a, b) => a+b
 };
-
-const roundNumber = (num) => Math.round((num + Number.EPSILON) * 100000000000000) / 100000000000000
-
-function updateDisplay(text) {
-    typeof text === 'number' ?
-        calcDisplay.innerHTML = String(text).slice(0,15):
-        calcDisplay.innerHTML = text.slice(0, 15)
-}
-
-buttons = document.getElementsByClassName("calc-button");
-
-for (let i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener('click', () => calculate(buttons[i].value))
-}
 
 let calcFunc = operations['+'];
 let calcLastValue = 0;
@@ -29,7 +28,7 @@ function calculate(value) {
     currentValue = calcDisplay.innerHTML
     // Checks if the value is numeric
     if ( !isNaN(value) ){
-        currentValue == 0 || isNaN(currentValue) || calcToReset ? updateDisplay(value) : updateDisplay(currentValue+value);
+        currentValue === '0' || isNaN(currentValue) || calcToReset ? updateDisplay(value) : updateDisplay(currentValue+value);
         calcToReset = false;
         return;
     }
@@ -61,6 +60,7 @@ function calculate(value) {
             console.log(calcLastValue);
             console.log(calcFunc);
             console.log(currentValue);
+
             if (value !== '='){
                 calcFunc = operations[value];
                 calcLastValue = currentValue
